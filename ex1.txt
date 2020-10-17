@@ -1,0 +1,201 @@
+%-------------------------------------------------------
+%--- Lab Report Template --- Prof. Benito Granados-Rojas 
+%-------------------------------------------------------
+%--------------------- DOCUMENT STYLE & USEFUL LIBRARIES
+\documentclass[12pt, twoside]{article} 
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\decimalpoint
+\usepackage{graphicx, subfigure, wrapfig, float}
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+\usepackage{caption, multicol, multirow, longtable}
+\usepackage{url, cclicenses, lastpage, color, booktabs}
+\usepackage{graphicx,lipsum,wrapfig}
+\usepackage{fancyhdr, fancybox}
+\usepackage{array} 
+\usepackage{vmargin}
+\usepackage{xcolor}
+\definecolor{td}{RGB}{170,0,0}
+\renewcommand\rmdefault{lmr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{Universidad La Salle México}
+\fancyhead[RE]{Ing. Mecatrónica}
+\fancyhead[RO]{Villegas Jiménez Mónica Alfonsina}
+\fancyhead[LO]{MTA-500} 
+\cfoot{\thepage}
+%-------------------------------------------------------------------------   
+\begin{document}
+\begin{center}
+   {\huge Laboratorio de Sensores y Actuadores}
+   \newline{\huge Examen 1} 
+\end{center}
+
+\section{Sensores y Detectores [15 puntos]}
+\begin{enumerate}
+    \item Describa brevemente la manera en la que un \textit{potenciómetro} puede ser utilizado para medir \textit{posición angular}.
+    \newline %Respuesta 1
+    El potenciómetro tiene una resistencia variable y sirve para ajustar la salida de algún dispositivo. Ese ajuste lo da gracias a que gira y ese giro nos proporciona un ángulo de giro relativo.
+    \item Enuncie dos diferentes aplicaciones prácticas del sensor conocido como \textit{acelerómetro}.
+    \newline %Respuesta 2
+    Se puede usar para drones; como por ejemplo controlar su aceleración. También para la aceleración de los ascensores o dentro de los celulares para la orientación de las brújulas
+    \item ¿En qué consisten los llamados \textit{sensores inteligentes} (Smart Sensors)?
+    \newline %Respuesta 3
+    Los sensores comunes capturan datos y se conectan a una computadora para procesar los datos. Los sensores inteligentes ya vienen integrados con circuitos que procesan dichos datos. 
+\end{enumerate}
+
+\section{Principios de Transducción [15 puntos]}
+\begin{enumerate}
+    \item Mencione tres principios de transducción NO directamente asociados con la \textit{conductividad/resistividad} de los materiales.
+     %Respuesta 4
+    \begin{enumerate}
+    \item Químico
+    \item Ultrasónico
+    \item Magnético
+    \end{enumerate}
+    \item Describa brevemente el principio y aplicaciones de la transducción por \textit{Efecto Joule}.
+    %Respuesta 5
+    \newline La corriente eléctrica que circula en un cierto dispositivo tiene electrones en movimiento y dichos electrones tienen choques entre sí, los cuales producen energía y esa energía se transforma en calor.  Se puede usar para cualquier dispositivo en el que se pueda manipular su temperatura: en los hornos, las secadoras de cabello o las estufas eléctricas. 
+    \item Describa brevemente las diferencias entre los principios de transducción \textit{piezoeléctrico} y \textit{piezorresistivo}.
+    \newline %Respuesta 6
+    Piezoeléctrico:
+    \newline 
+    Los transductores de este tipo se basan en que tienen un cristal que es sometido a tensiones mecánicas, y éste se polariza y podemos obtener cargas eléctricas y tensión. Y se van a variar dependiendo de los pulsos eléctricos o vibraciones 
+    \newline 
+    Piezorresistivo:
+    \newline 
+    El principio se usa normalmente para medir las fuerzas y deformaciones, y los sensores que se basan en este principio varia su resistencia por medio de esfuerzos mecánicos
+\end{enumerate}
+
+\section{Convertidor Analógico--Digital [30 puntos]}
+\begin{enumerate}
+    \item ¿Cuál es la resolución (valor más pequeño que se puede medir) en [V/LSB] de un convertidor A/D que acepta tensiones de entrada de 0 a 3.3V , cuando se configura a \textbf{(a)} 12 bits o  \textbf{(b)} 14 bits?
+    \newline %Respuesta 7
+\begin{equation} \label{eq1}
+\begin{split}
+2^1^2-1 =4095  \\
+ \left(\frac{3.3V}{4095} \right) = 8.0586 x10^-^4
+\end{split}
+\end{equation}
+    \newline %Respuesta 8
+    \newline
+\begin{equation} \label{eq1}
+\begin{split}
+2^1^4-1 =1638  \\
+ \left(\frac{3.3V}{1638} \right) = 2.0142 x10^-^4
+\end{split}
+\end{equation}
+\newline
+    \item 	Un sensor de temperatura LM35 con característica de $V_{(T)}=10 mV/^{\circ}C$ se conecta directamente a un convertidor analógico--digital de 10 bits. El convertidor admite señales en un \textit{rango invertido} de 0.8 a 2.5 V (ver esquema de conversión). 
+    \begin{center}
+    \begin{tabular}{c|ccccc}
+    \textbf{Voltaje analógico} & $0.8 V$ & $\cdots$ & $1.65 V$ & $\cdots$ & $2.5 V$ \\
+    \hline
+    \textbf{Conversión digital} & 1111111111 & $\cdots$ & 1000000000 & $\cdots$ & 0000000000
+    \end{tabular}
+    \end{center}
+    \begin{itemize}
+        \item ¿Cuáles son la cadena binaria y correspondiente valor decimal que se registran en presencia de \textbf{(a)} $100^{\circ}C$, \textbf{(b)} $150^{\circ}C$, \textbf{(c)} $200^{\circ}C$.
+        \newline
+        Podemos comenzar con la relación inicial que nos dan entre los V que devuelve con respecto a la temperatura, y tomaremos como ejemplo el que viene en la tabla:
+        \begin{equation} \label{eq1}
+\begin{split}
+\left(\frac{Volt}{10mV} \right) = Temperatura
+\end{split}
+\end{equation}
+Por lo tanto, si sustitumos:
+\begin{equation} \label{eq1}
+\begin{split}
+ \left(\frac{1.65V}{0.01\frac{V}{°C}} \right) = 165°C
+\end{split}
+\end{equation}
+Y eso lo podemos aplicar para las temperaturas solicitadas:
+\begin{equation} \label{eq1}
+\begin{split}
+ \left(\frac{Volt}{0.01\frac{V}{°C}} \right) = 100°C
+\end{split}
+\end{equation}
+El voltaje analógico sería= 1V
+\newpage
+\begin{equation} \label{eq1}
+\begin{split}
+ \left(\frac{Volt}{0.01\frac{V}{°C}} \right) = 150°C
+\end{split}
+\end{equation}
+El voltaje analógico sería= 1.5V
+\begin{equation} \label{eq1}
+\begin{split}
+ \left(\frac{Volt}{0.01\frac{V}{°C}} \right) = 200°C
+\end{split}
+\end{equation}
+El voltaje analógico sería= 2V
+\newline
+\newline
+Tomamos los valores proporcionados por la tabla, y se convierte el primer número binario (correspondiente al primer voltaje analógico de 0.8V), a decimal, que resultaría ser 1023. Se hace lo mismo con el último valor (el de voltaje de 2.5V), el cual resultaría ser 0 podemos. Ahora se puede aplicar la ecuación de interpolación, y resultarán los valores deseados, que después convertiremos a binario:
+\begin{equation} \label{eq1}
+\begin{split}
+y=y_0+\left(\frac{y_1-y_0}{x_1-x_0} \right)(x-x_0)
+\end{split}
+\end{equation}
+        \newline %Respuesta 9
+        Sustituyendo con 100°C:
+\begin{equation} \label{eq1}
+\begin{split}
+y=1023+\left(\frac{0-1023}{2.5-0.8} \right)(1-0.8)
+\end{split}
+\end{equation}
+\begin{equation} \label{eq1}
+\begin{split}
+y=902.64=903
+\end{split}
+\end{equation}
+El resultado para 100°C sería 903, y al convertir en binario tendríamos: 1110000111
+        \newline %Respuesta 10
+        \newline 
+        Sustituyendo con 150°C:
+\begin{equation} \label{eq1}
+\begin{split}
+y=1023+\left(\frac{0-1023}{2.5-0.8} \right)(1.5-0.8)
+\end{split}
+\end{equation}
+\begin{equation} \label{eq1}
+\begin{split}
+y=601.764=602
+\end{split}
+\end{equation}
+El resultado para 150°C sería 602, y al convertir en binario tendríamos: 1001011010
+        \newline %Respuesta 11
+        \newline 
+        Sustituyendo con 200°C:
+\begin{equation} \label{eq1}
+\begin{split}
+y=1023+\left(\frac{0-1023}{2.5-0.8} \right)(2-0.8)
+\end{split}
+\end{equation}
+\begin{equation} \label{eq1}
+\begin{split}
+y=300.8823=301
+\end{split}
+\end{equation}
+El resultado para 200°C sería 301, y al convertir en binario tendríamos: 100101101
+        \item Proponga y simule el circuito de interfaz necesario, basado en \textit{amplificadores operacionales}, si se desea trabajar entre 0 y $100^{\circ}C$ aprovechando el rango completo del ADC mencionado.
+    \end{itemize}
+    \begin{center}
+        \begin{tabular}{c|c}
+            $0^{\circ}C \to 2.5 V$ & $100^{\circ}C \to 0.8 V$  
+        \end{tabular}
+    \end{center}
+    \newline %Respuesta 12
+\end{enumerate}
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width=15cm]{100C.PNG}}
+    \caption{Circuito con 100°C.}
+   \label{fig1}
+   \end{figure}
+   \begin{figure}[htbp]
+    \centerline{\includegraphics[width=15cm]{0°C.PNG}}
+    \caption{Circuito con 0°C.}
+   \label{fig1}
+   \end{figure}
+\end{document}
+
